@@ -1,0 +1,2 @@
+ - name: Run the Exam Setup Tasks
+      command: ansible-playbook /tmp/ansible_exam_code/exam_playbook.yml

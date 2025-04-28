@@ -1,0 +1,21 @@
+---
+- name: Deploy Ansible Exam Setup
+  hosts: localhost
+  vars_files:
+    - vault.yml
+
+  tasks:
+    - name: Clone the exam repository
+      git:
+        repo: "{{ git_repo_url }}"
+        dest: /home/sujankc/project
+        version: "{{ git_branch | default('main') }}"
+        force: yes
+        accept_hostkey: yes
+        clone: yes
+
+    - name: Clean up - Remove pulled code
+      file:
+        path: /home/sujankc/project
+        state: absent
+
