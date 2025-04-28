@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y \
 
 COPY . /ansible_exam_pipeline
 
-WORKDIR /project
+WORKDIR /home/sujankc/project
 
 CMD ["ansible-playbook", "play.yml", "--vault-password-file", "/ansible_exam_pipeline/vault-pass.txt"]
 
